@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{data.foods[0].food_name}}</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Servings" [(ngModel)]="data.foods[0].serving_qty">
+    </mat-form-field>
+    <p>{{data.foods[0].serving_weight_grams}} grams</p>
+    <p>{{data.foods[0].nf_calories}} Calories</p>
+    <mat-form-field>
+        <mat-select>
+            <mat-option *ngFor="let meal of meals" [value]="meal.type">
+                {{meal.label}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>add</button>
+</div>
