@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of,throwError } from 'rxjs';
 
 
 /** Type of the handleError function returned by HttpErrorHandler.createHandleError */
@@ -38,7 +38,8 @@ export class HttpErrorHandler {
 
 
       // Let the app keep running by returning a safe result.
-      return of( result );
+      //return of( result );
+      return (throwError(error))
     };
 
   }

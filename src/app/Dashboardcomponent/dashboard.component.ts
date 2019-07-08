@@ -111,7 +111,7 @@ export class DashboardComponent{
           this.brandedfoods = [];
           this.isLoading = true;
         }),
-        switchMap(value => this._filterNeutrients(value)
+        switchMap(value => !value?[]:this._filterNeutrients(value)
           .pipe(
             finalize(() => {
               this.isLoading = false

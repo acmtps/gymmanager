@@ -22,8 +22,10 @@ export class AuthComponent {
 this.showSpinner = true;
     this.gymservice.add(loginObj,"auth/signin").subscribe((res: any) => {
       this.showSpinner = false;
-      this.router.navigate(['/dashboard']);
-      localStorage.setItem("userData",JSON.stringify(res));
+        this.router.navigate(['/dashboard']);
+        localStorage.setItem("userData",JSON.stringify(res));
+    },err=>{
+      this.showSpinner = false;
     });
 
   }
